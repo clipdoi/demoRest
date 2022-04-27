@@ -1,5 +1,6 @@
 package com.demorest.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,16 +26,13 @@ public class Role implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
-	private int id;
+	private int roleId;
 
 	@Column(name = "name", nullable = false, length = 50)
 	private String name;
 
-	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "account_role", schema = "public", joinColumns = {
-			@JoinColumn(name = "roleid", nullable = false, updatable = false) }, inverseJoinColumns = {
-					@JoinColumn(name = "accid", nullable = false, updatable = false) })
+	@JsonIgnore
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles")
 	private Set<Account> accounts;
 
 }

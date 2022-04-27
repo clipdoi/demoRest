@@ -1,5 +1,6 @@
 package com.demorest.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,7 +30,7 @@ public class Account implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
-	private Long id;
+	private Long accountId;
 
 	@Column(name = "username", nullable = false, length = 60)
 	private String username;
@@ -50,10 +51,11 @@ public class Account implements Serializable {
 	@Column(name = "status", nullable = false)
 	private boolean status;
 
+	@JsonIgnore
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "account_role", schema = "public", joinColumns = {
-			@JoinColumn(name = "accid", nullable = false, updatable = false) }, inverseJoinColumns = {
-					@JoinColumn(name = "roleid", nullable = false, updatable = false) })
+			@JoinColumn(name = "accountId", nullable = false, updatable = false) }, inverseJoinColumns = {
+					@JoinColumn(name = "roleId", nullable = false, updatable = false) })
 	private Set<Role> roles;
 	
 }

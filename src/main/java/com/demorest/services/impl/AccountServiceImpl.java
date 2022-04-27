@@ -1,6 +1,5 @@
 package com.demorest.services.impl;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +44,11 @@ public class AccountServiceImpl implements AccountService{
 	@Override
 	public List<Account> findAllAccount() {
 		return accountRepository.findAllAccount();
+	}
+
+	@Override
+	public List<String> getRolesByAccountId(long id) {
+		return accountRepository.getRolesByAccountId(id);
 	}
 	
 }

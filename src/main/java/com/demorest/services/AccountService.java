@@ -1,6 +1,5 @@
 package com.demorest.services;
 
-import java.util.Date;
 import java.util.List;
 
 import com.demorest.models.Account;
@@ -11,4 +10,5 @@ public interface AccountService {
 	Account save(Account p);
 	boolean delete(long id);
 	List<Account> findAllAccount();
+	List<String> getRolesByAccountId(long id);
 }
