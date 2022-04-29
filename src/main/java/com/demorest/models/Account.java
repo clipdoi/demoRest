@@ -1,9 +1,7 @@
 package com.demorest.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -14,8 +12,9 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
-
+@Builder
 @Data
+@Getter
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor

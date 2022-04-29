@@ -10,16 +10,10 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ErrorMessage {
+
     private Integer statusCode;
     private String message;
     private String timestamp;
     private String description;
-	public ErrorMessage(Integer statusCode, String message, String timestamp, String description) {
-		super();
-		this.statusCode = statusCode;
-		this.message = message;
-		this.timestamp = timestamp;
-		this.description = description;
-	}
     
 }
